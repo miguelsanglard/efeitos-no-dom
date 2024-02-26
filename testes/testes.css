@@ -1,0 +1,16 @@
+body {
+  background: blue;
+  text-align: center;
+}
+
+body.verde {
+  background: red;
+}
+
+button {
+  text-align: center;
+  font-size: 30px;
+  max-width: auto;
+  display: flexbox;
+  justify-items: center;
+}
