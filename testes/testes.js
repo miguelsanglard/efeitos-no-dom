@@ -9,30 +9,31 @@ const background = document.querySelector('body')
 
 // Crie um cronometro utilizando o setInterval. Deve ser possível
 // iniciar, pausar e resetar (duplo clique no pausar).
-
-const iniciar = document.querySelector('.iniciar')
-const pausar = document.querySelector('.pausar')
+const buttonIniciar = document.querySelector('.iniciar')
+const buttonPausar = document.querySelector('.pausar')
 const tempo = document.querySelector('.tempo')
 
-iniciar.addEventListener('click', initClick)
-pausar.addEventListener('click', pauseClick)
-pausar.addEventListener('dblclick', resetarClick)
+buttonIniciar.addEventListener('click', clickIniciar)
+buttonPausar.addEventListener('click', clickPausar)
+buttonPausar.addEventListener('dblclick', clickResetar)
 
-let i = 0;
-let timer;
-function initClick() {
+let i = 0
+let timer
+
+function clickIniciar() {
   timer = setInterval(() => {
-    tempo.innerHTML = i++;
-  }, 500);
-  // iniciar.setAttribute('disabled', '')
+    tempo.innerHTML = i++
+  }, 1000);
+  buttonIniciar.setAttribute('disabled', '')
 }
-function pauseClick() {
-  clearInterval(timer)
-  iniciar.removeAttribute('.iniciar', '')
+function clickPausar() {
+  clearTimeout(timer)
+  buttonIniciar.removeAttribute('disabled', '')
+
 }
-function resetarClick() {
-  console.log('a')
+function clickResetar() {
+  tempo.innerHTML = 0
+  i = 0
 }
 
 
-console.log(iniciar)
